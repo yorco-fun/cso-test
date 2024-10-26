@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cso',
-        'USER': 'cso',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'NAME': 'dpg-cse9lpm8ii6s738v86qg-a',
+        'USER': 'cso_user',
+        'PASSWORD': 'WVSgG2gsGzR7ZRNnNUMDUk45h4qE9NpV',
+        'HOST': 'postgresql://cso_user:WVSgG2gsGzR7ZRNnNUMDUk45h4qE9NpV@dpg-cse9lpm8ii6s738v86qg-a.frankfurt-postgres.render.com/cso',
         'PORT': '5432',
     }
 }
