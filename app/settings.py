@@ -85,16 +85,16 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dpg-cse9lpm8ii6s738v86qg-a',
-        'USER': 'cso_user',
-        'PASSWORD': 'WVSgG2gsGzR7ZRNnNUMDUk45h4qE9NpV',
-        'HOST': 'postgresql://cso_user:WVSgG2gsGzR7ZRNnNUMDUk45h4qE9NpV@dpg-cse9lpm8ii6s738v86qg-a.frankfurt-postgres.render.com/cso',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'dpg-cse9lpm8ii6s738v86qg-a',
+#         'USER': 'cso_user',
+#         'PASSWORD': 'WVSgG2gsGzR7ZRNnNUMDUk45h4qE9NpV',
+#         'HOST': 'postgresql://cso_user:WVSgG2gsGzR7ZRNnNUMDUk45h4qE9NpV@dpg-cse9lpm8ii6s738v86qg-a.frankfurt-postgres.render.com/cso',
+#         'PORT': '5432',
+#     }
+# }
 
 CACHES = {
     "default": {
