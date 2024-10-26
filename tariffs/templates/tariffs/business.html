@@ -1,0 +1,100 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<main class="page">
+  <section class="tariffs-business">
+    <h1 class="tariffs-business__title title title--large">Бізнес тарифи</h1>
+    <div class="tariffs-business__container">
+      <div data-watch class="tariffs-business__title-block title-block">
+        <h2 class="title-block__title title">Корпоративні тарифи</h2>
+        <div class="title-block__text text">
+          Сучасний бізнес вимагає стабільного, швидкого та безпечного
+          інтернет-з'єднання. Ми пропонуємо комплексні рішення для корпоративних
+          клієнтів, які дозволять вашій компанії завжди залишатися на зв'язку,
+          працювати ефективно та безперервно.
+        </div>
+      </div>
+      <div data-watch class="tariffs-business__cards">
+        {% for item in business %}
+        <div class="tariffs-business__card card-tariff">
+          <div class="card-tariff__title title title--item">{{ item.title }}</div>
+          <div class="card-tariff__price">{{ item.price }} грн</div>
+          <div class="card-tariff__speed">{{ item.speed }}</div>
+          <div class="card-tariff__text text">{{ item.text }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <div data-watch class="tariffs-business__body">
+        <div class="tariffs-business__content">
+          <h4 class="tariffs-business__sub-title sub-title">Наші переваги:</h4>
+          <ul class="tariffs-business__items">
+            <li class="tariffs-business__item">
+              <span>Висока швидкість з'єднання.</span> Забезпечуємо швидкість до
+              1 Гбіт/с, що дозволяє вашій команді працювати без затримок і
+              простоїв.
+            </li>
+            <li class="tariffs-business__item">
+              <span>Надійність та стабільність.</span> Гарантуємо мінімальний
+              час простою завдяки сучасній інфраструктурі, резервним каналам і
+              цілодобовому моніторингу мережі.
+            </li>
+            <li class="tariffs-business__item">
+              <span>Індивідуальний підхід.</span> Пропонуємо гнучкі рішення для
+              будь-яких масштабів бізнесу — від малого офісу до великих
+              корпорацій. Налаштування тарифів та послуг адаптуються під ваші
+              потреби.
+            </li>
+            <li class="tariffs-business__item">
+              <span>Технічна підтримка 24/7.</span> Наша команда завжди на
+              зв'язку для швидкого вирішення будь-яких питань. Ми забезпечимо
+              безперервну роботу вашого бізнесу навіть у найкритичніші моменти.
+            </li>
+            <li class="tariffs-business__item">
+              <span>Безпека мережі.</span> Високий рівень захисту ваших даних
+              завдяки передовим технологіям шифрування та системам захисту від
+              кіберзагроз.
+            </li>
+          </ul>
+        </div>
+        <div class="tariffs-business__content">
+          <h4 class="tariffs-business__sub-title sub-title">
+            Додаткові послуги:
+          </h4>
+          <ul class="tariffs-business__items">
+            <li class="tariffs-business__item">
+              <span>VPN (Віртуальні приватні мережі).</span> Захищений канал
+              зв'язку між філіями або віддаленими офісами для безпечної передачі
+              даних.
+            </li>
+            <li class="tariffs-business__item">
+              <span>Виділена IP-адреса.</span> Для надійної роботи з серверами,
+              банківськими системами та хмарними сервісами.
+            </li>
+            <li class="tariffs-business__item">
+              <span>Хмарні рішення та дата-центри.</span> Ми надаємо потужні
+              хмарні сервіси для зберігання даних, резервного копіювання та
+              масштабування ваших бізнес-процесів.
+            </li>
+          </ul>
+        </div>
+        <div class="tariffs-business__content tariffs-business__content--last">
+          <h4 class="tariffs-business__sub-title sub-title">
+            Залиште заявку прямо зараз
+          </h4>
+          <div class="tariffs-business__sub-text text">
+            {% comment %} Заповніть <a data-popup="#form-popup" href="#">форму</a> (в полі "Коментар" додайте "Бізнес",
+            щоб ми знали, що ваша заявка - пріоритетна), і наші менеджери
+            зв’яжуться з вами для підбору оптимального рішення для вашого
+            бізнесу. {% endcomment %}
+            Зателефонуйте нам за номером
+            <a href="tel:0673703236">067-370-32-36</a>. Ми пропонуємо
+            безкоштовну консультацію та індивідуальні умови співпраці.
+          </div>
+          <div class="tariffs-business__sub-text text">
+            Вибирайте стабільність і надійність для свого бізнесу з нашим
+            інтернетом для корпоративних клієнтів!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

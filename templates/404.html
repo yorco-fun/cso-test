@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Сторінку не знайдено</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="{% static "css/style.min.css" %}">
+	<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="wrapper">
+<main class="page">
+  <section data-watch class="error">
+    <div class="error__container">
+      <div class="error__contant">
+        <h1 class="error__title title">Зникла у просторі</h1>
+        <div class="error__value">404</div>
+        <div class="error__text text">
+          Сторінка, яку ви шукаєте, зникла у просторі інтернету. Перевірте
+          адресу або поверніться на
+          <a href="{% url "main:index" %}" class="error__link">Головну сторінку</a>.
+        </div>
+      </div>
+    </div>
+    {% comment %} <img class="error__image" src="{% static "img/errors/404.webp" %}" alt="Error 404" /> {% endcomment %}
+  </section>
+</main>
+</div>
+</body>
+
+</html>
+

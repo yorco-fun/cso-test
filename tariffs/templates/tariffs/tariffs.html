@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<main class="page">
+  <section class="tariffs-page">
+    <h1 class="tariffs-page__title title title--large">Тарифи</h1>
+    <div class="tariffs-page__container">
+      <div data-watch class="tariffs-page__title-block">
+        <h2 class="tariffs-page__title title">
+          Золочівський район та місто Золочів
+        </h2>
+      </div>
+      <div class="tariffs-page__content">
+        <div data-watch class="tariffs-page__sub-title-block">
+          <h3 class="tariffs-page__sub-title">Інтернет</h3>
+        </div>
+        <div data-watch class="tariffs-page__cards">
+          {% for tariff in tariffs %} {% if tariff.region.name == 'Золочівський район та місто Золочів' and tariff.type.name == "Інтернет" %}
+          <div class="tariffs-page__card card-tariff">
+            <div class="card-tariff__title title title--item">
+              {{ tariff.title }}
+            </div>
+            <div class="card-tariff__price">{{ tariff.price }} грн</div>
+            <div class="card-tariff__speed">{{ tariff.speed }}</div>
+            <div class="card-tariff__type">{{ tariff.building_type }}</div>
+            <div class="card-tariff__text text">{{ tariff.text }}</div>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+        <div data-watch class="tariffs-page__sub-title-block">
+          <h3 class="tariffs-page__sub-title">Інтернет + Телебачення</h3>
+        </div>
+        <div data-watch class="tariffs-page__cards">
+          {% for tariff in tariffs %} {% if tariff.region.name == 'Золочівський район та місто Золочів' and tariff.type.name == "Інтернет + Телебачення" %}
+          <div class="tariffs-page__card card-tariff">
+            <div class="card-tariff__title title title--item">
+              {{ tariff.title }}
+            </div>
+            <div class="card-tariff__price">{{ tariff.price }} грн</div>
+            <div class="card-tariff__speed">{{ tariff.speed }}</div>
+            <div class="card-tariff__type">{{ tariff.building_type }}</div>
+            <div class="card-tariff__text text">{{ tariff.text }}</div>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+      </div>
+      <div data-watch class="tariffs-page__title-block">
+        <h2 class="tariffs-page__title title">
+          Львівський район та місто Перемишляни
+        </h2>
+      </div>
+      <div class="tariffs-page__content">
+        <div data-watch class="tariffs-page__sub-title-block">
+          <h3 class="tariffs-page__sub-title">Інтернет</h3>
+        </div>
+        <div data-watch class="tariffs-page__cards">
+          {% for tariff in tariffs %} {% if tariff.region.name == 'Львівський район та місто Перемишляни' and tariff.type.name == "Інтернет" %}
+          <div class="tariffs-page__card card-tariff">
+            <div class="card-tariff__title title title--item">
+              {{ tariff.title }}
+            </div>
+            <div class="card-tariff__price">{{ tariff.price }} грн</div>
+            <div class="card-tariff__speed">{{ tariff.speed }}</div>
+            <div class="card-tariff__type">{{ tariff.building_type }}</div>
+            <div class="card-tariff__text text">{{ tariff.text }}</div>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+        <div data-watch class="tariffs-page__sub-title-block">
+          <h3 class="tariffs-page__sub-title">Інтернет + Телебачення</h3>
+        </div>
+        <div data-watch class="tariffs-page__cards">
+          {% for tariff in tariffs %} {% if tariff.region.name == 'Львівський район та місто Перемишляни' and tariff.type.name == "Інтернет + Телебачення" %}
+          <div class="tariffs-page__card card-tariff">
+            <div class="card-tariff__title title title--item">
+              {{ tariff.title }}
+            </div>
+            <div class="card-tariff__price">{{ tariff.price }} грн</div>
+            <div class="card-tariff__speed">{{ tariff.speed }}</div>
+            <div class="card-tariff__type">{{ tariff.building_type }}</div>
+            <div class="card-tariff__text text">{{ tariff.text }}</div>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+      </div>
+      <a href="{% url "tariffs:business" %}" class="tariffs-page__button button"
+        >Корпоративні тарифи</a
+      >
+    </div>
+  </section>
+</main>
+{% endblock %}

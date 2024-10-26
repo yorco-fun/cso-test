@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Помилка сервера</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="{% static "css/style.min.css" %}">
+	<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="wrapper">
+<main class="page">
+  <section data-watch class="error">
+    <div class="error__container">
+      <div class="error__contant">
+        <h1 class="error__title title">Технічний відпочинок</h1>
+        <div class="error__value">500</div>
+        <div class="error__text text">
+			Нашому серверу потрібен технічний відпочинок! Спробуйте ще раз пізніше або поверніться на <a href="{% url "main:index" %}" class="error__link">Головну сторінку</a>.
+        </div>
+      </div>
+    </div>
+    {% comment %} <img class="error__image ibg" src="{% static "img/errors/500.webp" %}" alt="Error 500" /> {% endcomment %}
+  </section>
+</main>
+</div>
+</body>
+
+</html>

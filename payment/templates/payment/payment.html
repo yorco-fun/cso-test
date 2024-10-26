@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<main class="page">
+    <section data-watch class="payment-online">
+        <div class="payment-online__container">
+            <h2 class="payment-online__title title">Оплатити послуги он-лайн</h2>
+            <div class="payment-online__items">
+                {% for hint in hint_list %}
+                <div class="payment-online__item">
+                    <a href="{{ hint.payment_method.link }}" target="_blank" class="payment-online__link">
+                        <img class="payment-online__image" src="{{ hint.payment_method.image.url }}" alt="{{ hint.payment_method.name }}">
+                    </a>
+                    <a href="{{ hint.payment_method.link }}" target="_blank" class="payment-online__button button">Оплатити</a>
+                    <a data-popup="#hint-popup-{{ hint.payment_method.id }}" href="#" class="payment-online__hint">Підказка</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% for hint in hint_list %}
+    <div data-watch id="hint-popup-{{ hint.payment_method.id }}" aria-hidden="true" class="popup">
+        <div class="popup__wrapper">
+            <div class="popup__content">
+                <button data-close type="button" class="popup__close">
+                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+                        <path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+                    </svg>
+                </button>
+                <div class="popup__text">
+                    <ul class="popup__list">
+                        {% for item in hint.get_list %}
+                        <li class="popup__link">{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <section data-watch class="payment-offline">
+        <div class="payment-offline__container">
+            <h2 class="payment-offline__title title">Оплатити у відділенні офісу або банку</h2>
+            <div class="payment-offline__text text">
+                <p>Ви можете швидко та зручно оплатити послуги Інтернету безпосередньо в відділенні нашого офісу. Наші співробітники завжди готові надати вам допомогу та відповісти на всі ваші запитання.</p>
+            </div>
+            <div class="payment-offline__location">
+                <div class="payment-offline__content">
+                    <h4 class="payment-offline__sub-title sub-title">Офіс у центрі міста</h4>
+                    <ul class="payment-offline__items">
+                        <li class="payment-offline__item _icon-location">м. Золочів, вул. С.Бандери, 11</li>
+                        <li class="payment-offline__item _icon-clock">Пн-Пт: 9:00 - 18:00, <span>Сб: 9:00 - 14:00</span></li>
+                        <li class="payment-offline__item">
+                            <a class="payment-offline__link _icon-phone" href="tel:+380671234567">+38 (067) 123 45 67</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="payment-offline__content">
+                    <h4 class="payment-offline__sub-title sub-title">Головний офіс</h4>
+                    <ul class="payment-offline__items">
+                        <li class="payment-offline__item _icon-location">м. Золочів, вул. Тернопільська, 3</li>
+                        <li class="payment-offline__item _icon-clock">Пн-Пт: 9:00 - 18:00</li>
+                        <li class="payment-offline__item">
+                            <a class="payment-offline__link _icon-phone" href="tel:+380674321278">+38 (067) 432 12 78</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="payment-offline__text text">Або у найближчому відділенні будь-якого банку</div>
+        </div>
+    </section>
+</main>
+{% endblock %}

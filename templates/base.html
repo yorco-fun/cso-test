@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>{{ title }}</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<style>body{opacity:0;}</style>
+	<link rel="stylesheet" href="{% static "css/style.min.css" %}">
+	<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__top top-header">
+				<div class="top-header__container">
+					{% comment %} <a href="account.html" data-da=".main-header__actions, 767.98, 0" class="top-header__account _icon-user"><span>Особистий кабінет</span></a> {% endcomment %}
+					<div style="display:flex; justify-items: end;" class="top-header__menu menu-top">
+						<nav class="menu-top__body">
+							<ul data-da=".menu__body, 767.98" class="menu-top__list">
+								<li class="menu-top__item"><a href="{% url "main:about" %}" class="menu-top__link">Про компанію</a></li>
+								<li class="menu-top__item"><a href="{% url "main:contacts" %}" class="menu-top__link">Контакти та вакансії</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<div class="header__main main-header">
+				<div class="main-header__container">
+					<a href="{% url "main:index" %}" class="main-header__logo"><img src="{% static "img/logo.webp" %}" alt="logo"></a>
+					<div class="main-header__menu menu">
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item"><a href="{% url "tariffs:index" %}" class="menu__link">Тарифи</a></li>
+								<li class="menu__item"><a href="{% url "blog:index" %}" class="menu__link">Новини та aкції</a></li>
+								<li class="menu__item"><a href="{% url "payment:index" %}" class="menu__link">Оплата</a></li>
+								<li class="menu__item"><a href="{% url "tariffs:business" %}" class="menu__link">Для бізнесу</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="main-header__actions">
+						<a href="tel:0673703236" class="main-header__phone _icon-phone"><span>067-370-32-36</span></a>
+						{% comment %}
+						<a href="#" data-popup="#form-popup" class="main-header__button button button--header">Підключити</a>
+						{% endcomment %}
+						<button type="button" class="icon-menu"><span></span></button>
+					</div>
+				</div>
+			</div>
+		</header>
+		{% block content %}
+        {% endblock %}
+		<footer data-watch class="footer">
+			<div class="footer__main main-footer">
+				<div class="main-footer__container">
+					<div class="main-footer__column">
+						<a href="{% url "main:index" %}" class="main-footer__logo"><img src="{% static "img/logo.webp" %}" alt="Logo"></a>
+						<div class="main-footer__text text">ЦСО – забезпечуємо надійний та швидкий інтернет для вашого дому та бізнесу.
+							З нами ви завжди онлайн без перерв та затримок.</div>
+						<div class="main-footer__socials">
+							<a href="https://www.facebook.com/cso.zolochiv" target="_blank" class="main-footer__social _icon-facebook"></a>
+							<a href="https://www.instagram.com/" target="_blank" class="main-footer__social _icon-instagram"></a>
+							<a href="https://telegram.org/" target="_blank" class="main-footer__social _icon-telegram"></a>
+						</div>
+					</div>
+					<div class="main-footer__column">
+						<nav class="main-footer__menu menu-footer">
+							<ul class="menu-footer__list">
+								<li class="menu-footer__item"><a href="{% url "main:about" %}" class="menu-footer__link">Про компанію</a></li>
+								<li class="menu-footer__item"><a href="{% url "main:contacts" %}" class="menu-footer__link">Контакти</a></li>
+								<li class="menu-footer__item"><a href="{% url "tariffs:business" %}" class="menu-footer__link">Для бізнесу</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="main-footer__column">
+						<nav class="main-footer__menu menu-footer">
+							<ul class="menu-footer__list">
+								<li class="menu-footer__item"><a href="{% url "tariffs:index" %}" class="menu-footer__link">Тарифи</a></li>
+								<li class="menu-footer__item"><a href="{% url "blog:index" %}" class="menu-footer__link">Новини та aкції</a></li>
+								<li class="menu-footer__item"><a href="{% url "payment:index" %}" class="menu-footer__link">Оплата</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="main-footer__column">
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item _icon-location">м. Золочів, вул. С.Бандери, 11</li>
+							<li class="menu-footer__item _icon-location">м. Золочів, вул. Тернопільська, 3</li>
+							<li class="menu-footer__item"><a href="tel:0673703236" class="menu-footer__link _icon-phone">067-370-32-36</a></li>
+							<li class="menu-footer__item"><a href="mailto:cso@gmail.com" class="menu-footer__link _icon-mail">cso@gmail.com</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer__bottom bottom-footer">
+				<div class="bottom-footer__container">
+					<div class="bottom-footer__text">© 2024. Всі права захищені.</div>
+					<a method="get" target="_blank" href="{% static "files/CSO_Internet_Service_Agreement_Public_Offer.pdf" class="bottom-footer__link" %}">Політика конфіденційності</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+	{% comment %}
+	<div data-watch id="form-popup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">
+					<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+						<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+					</svg>
+				</button>
+				<div class="popup__text">
+					<h3 class="popup__title title title--small">Заявка на підключення</h3>
+					<form action="#" method="POST" data-ajax class="popup__form form">
+						{% csrf_token %}
+						<div class="popup-form__item">
+							<label for="id_firstname" class="popup-form__label">Ім'я <span>*</span></label>
+							<input id="id_firstname" autocomplete="off" type="text" name="firstname" data-required data-error="Заповніть поле" placeholder="Введіть ім'я" class="popup-form__input input">
+						</div>
+						<div class="popup-form__item">
+							<label for="id_lastname" class="popup-form__label">Прізвище <span>*</span></label>
+							<input id="id_lastname" autocomplete="off" type="text" name="lastname" data-required data-error="Заповніть поле" placeholder="Введіть прізвище" class="popup-form__input input">
+						</div>
+						<div class="popup-form__item">
+							<label for="id_surname" class="popup-form__label">По-батькові</label>
+							<input id="id_surname" autocomplete="off" type="text" name="surname" data-error="Error" placeholder="Введіть по-батькові" class="popup-form__input input">
+						</div>
+						<div class="popup-form__item popup-form__item--address">
+							<label for="id_adress" class="popup-form__label">Адреса</label>
+							<input id="id_adress" autocomplete="off" type="text" name="adress[]" data-error="Error" placeholder="Населений пункту" class="popup-form__input input">
+							<input id="id_adress" autocomplete="off" type="text" name="adress[]" data-error="Error" placeholder="Вулиця" class="popup-form__input input">
+							<input id="id_adress" autocomplete="off" type="text" name="adress[]" data-error="Error" placeholder="Буд / кв" class="popup-form__input input">
+						</div>
+						<div class="popup-form__item">
+							<label for="id_phone" class="popup-form__label">Контактний телефон <span>*</span></label>
+							<input id="id_phone" autocomplete="off" type="text" name="phone" data-required="phone" data-error="Некоректний номер" placeholder="Введіть номер телефону" class="popup-form__input input">
+						</div>
+						<div class="popup-form__item popup-form__item--message">
+							<label for="id_comment" class="popup-form__label">Коментар</label>
+							<textarea id="id_comment" autocomplete="off" name="comment" placeholder="Вкажіть дату та час, коли вам буде зручно, щоб ми з вами зв'язались" data-error="Помилка" class="popup-form__input input"></textarea>
+						</div>
+						<div class="popup-form__item popup-form__item--button">
+							<button type="submit" class="popup-form__button button">Надіслати</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endcomment %}
+	<script src="{% static "js/app.min.js" %}"></script>
+</body>
+
+</html>
