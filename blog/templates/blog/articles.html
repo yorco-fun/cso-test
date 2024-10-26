@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="page">
+    <section data-watch class="articles">
+        <div class="articles__container">
+            <div class="articles__items">
+                {% for article in articles %}
+                <div class="articles__item item-blog">
+                    <div class="item-blog__label {% if article.category.name == "Акція" %} item-blog__label--accent{% endif %}">{{ article.category }}</div>
+                    <a href="{% url "blog:article" article.slug %}" class="item-blog__link">
+                        {% if article.image %}
+                            <img class="item-blog__image ibg" src="{{ article.image.url }}" alt="{{ article.title }}">
+                        {% endif %}
+                    </a>
+                    <div class="item-blog__content">
+                        <div class="item-blog__date">{{ article.date }}</div>
+                        <h5 class="item-blog__title title title--item"><a href="{% url "blog:article" article.slug %}">{{ article.title }}</a></h5>
+                        <div class="item-blog__text text">{{ article.text|truncatechars:170 }}</div>
+                        <a href="{% url "blog:article" article.slug %}" class="item-blog__button button">Детально</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="pagging">
+                <a href="{% if articles.has_previous %}?page={{ articles.previous_page_number }}{% else %}#{% endif %}" 
+                   class="pagging__arrow pagging__arrow--left _icon-chevron {% if not articles.has_previous %}_disabled{% endif %}">
+                </a>
+                <ul class="pagging__list">
+                    {% for page in articles.paginator.page_range %}
+                        {% if page >= articles.number|add:-2 and page <= articles.number|add:2 %}
+                        <li>
+                            <a href="?page={{ page }}" class="pagging__item {% if page == articles.number %}_active{% endif %}">{{ page }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <a href="{% if articles.has_next %}?page={{ articles.next_page_number }}{% else %}#{% endif %}" 
+                   class="pagging__arrow pagging__arrow--right _icon-chevron {% if not articles.has_next %}_disabled{% endif %}">
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="page">
+    <section data-watch class="hero">
+        <div class="hero__container">
+            <div class="hero__body">
+                <div class="hero__slider swiper">
+                    <div class="hero__wrapper swiper-wrapper">
+                        {% for article in slider_articles %}
+						<div class="hero__slide swiper-slide">
+							<div class="hero__content">
+								<h1 data-swiper-parallax="-300" class="hero__title title title--hero"><a href="{% url "blog:article" article.slug %}">{{article.title}}</a></h1>
+								<a data-swiper-parallax="-500" href="{% url "blog:article" article.slug %}" class="hero__button button">Детально</a>
+							</div>
+							<img class="hero__image ibg" src="{{article.image.url}}" alt="{{article.title}}">
+						</div>
+						{% endfor %}
+                    </div>
+                </div>
+                <div class="hero__arrows">
+                    <div class="hero__arrow hero__arrow--prev _icon-chevron"></div>
+                    <div class="hero__arrow hero__arrow--next _icon-chevron"></div>
+                </div>
+                <div class="hero__bullets"></div>
+            </div>
+        </div>
+    </section>
+    <section data-watch class="services">
+        <div class="services__container">
+            <h2 class="services__title title">Послуги</h2>
+            <div class="services__items">
+                <div class="services__item item-services">
+                    <a href="{% url "tariffs:index" %}" class="item-services__icon">
+                        <img src="{% static "img/services/01.svg" %}" alt="Інтернет">
+                    </a>
+                    <h5 class="item-services__title title title--item"><a href="{% url "tariffs:index" %}">Інтернет</a></h5>
+                    <div class="item-services__text text">Безкоштовне підключення до мережі Інтернет</div>
+                </div>
+                <div class="services__item item-services">
+                    <a href="{% url "tariffs:business" %}" class="item-services__icon">
+                        <img src="{% static "img/services/02.svg" %}" alt="Для бізнесу">
+                    </a>
+                    <h5 class="item-services__title title title--item"><a href="{% url "tariffs:business" %}">Для бізнесу</a></h5>
+                    <div class="item-services__text text">Ваш бізнес на високій швидкості</div>
+                </div>
+                <div class="services__item item-services">
+                    <a href="https://www.facebook.com/csosolar?paipv=0&eav=AfZqSSgGzZqXzTg3jc7uO36UBM1j3OUlcchgdJuQo98DVaFNFabHan8KBlZzOX2RYW4&_rdr" class="item-services__icon">
+                        <img src="{% static "img/services/03.svg" %}" alt="CSOSolar">
+                    </a>
+                    <h5 class="item-services__title title title--item"><a href="https://www.facebook.com/csosolar?paipv=0&eav=AfZqSSgGzZqXzTg3jc7uO36UBM1j3OUlcchgdJuQo98DVaFNFabHan8KBlZzOX2RYW4&_rdr">Сонячна енергія</a></h5>
+                    <div class="item-services__text text">Встановлення сонячних станцій</div>
+                </div>
+                <div class="services__item item-services">
+                    <a href="{% url "payment:index" %}" class="item-services__icon">
+                        <img src="{% static "img/services/04.svg" %}" alt="Icon">
+                    </a>
+                    <h5 class="item-services__title title title--item"><a href="{% url "payment:index" %}">Оплата</a></h5>
+                    <div class="item-services__text text">Онлайн оплата послуг</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section data-watch class="tariffs">
+        <div class="tariffs__container">
+            <h2 class="tariffs__title title">Тарифи</h2>
+            <div class="tariffs__cards">
+            {% for tariff in tariffs %}
+            <div class="tariffs-page__card card-tariff">
+            <div class="card-tariff__title title title--item">
+              {{ tariff.title }}
+            </div>
+            <div class="card-tariff__price">{{ tariff.price }} грн</div>
+            <div class="card-tariff__speed">{{ tariff.speed }}</div>
+            <div class="card-tariff__type">{{ tariff.building_type }}</div>
+            <div class="card-tariff__text text">{{ tariff.text }}</div>
+            </div>
+            {% endfor %}
+            </div>
+            <a href="{% url "tariffs:index" %}" class="tariffs__button button">Детально про тарифи</a>
+        </div>
+    </section>
+    <section data-watch class="blog">
+        <div class="blog__container">
+            <h2 class="blog__title title">Новини та акції</h2>
+            <div class="blog__items">
+                {% for article in latest_articles %}
+				<div class="blog__item item-blog">
+					<div class="item-blog__label {% if article.category.name == "Акція" %} item-blog__label--accent{% endif %}">{{article.category}}</div>
+					<a href="{% url "blog:article" article.slug %}" class="item-blog__link">
+						<img class="item-blog__image ibg" src="{{article.image.url}}" alt="{{article.title}}">
+					</a>
+					<div class="item-blog__content">
+						<div class="item-blog__date">{{article.date}}</div>
+						<h5 class="item-blog__title title title--item"><a href="{% url "blog:article" article.slug %}">{{article.title}}</a></h5>
+						<div class="item-blog__text text">{{article.text|truncatechars:170}}</div>
+						<a href="{% url "blog:article" article.slug %}" class="item-blog__button button">Детально</a>
+					</div>
+				</div>
+				{% endfor %}
+            </div>
+            <a href="{% url "blog:index" %}" class="blog__button button">Всі новини</a>
+        </div>
+    </section>
+    <section data-watch class="faq">
+        <div class="faq__container">
+            <h2 class="faq__title title">Часті питання</h2>
+            <div class="faq__body">
+                <div data-spollers class="faq__spollers spollers">
+                    {% for faq in faqs %}
+						<details class="spollers__item">
+							<summary class="spollers__title">{{faq.title}}</summary>
+							<div class="spollers__body">
+								<div class="spollers__text text">{{faq.text}}</div>
+							</div>
+						</details>
+					{% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section data-watch class="map">
+        <div class="map__container">
+            <h2 class="map__title title">Карта покриття</h2>
+            <div class="map__body">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52722.57068696038!2d24.857460420369673!3d49.80923921740783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473007fcdf1dbefd%3A0x68d7724e21006816!2z0JfQvtC70L7Rh9GW0LIsINCb0YzQstGW0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjCwgODA3MDA!5e1!3m2!1suk!2sua!4v1720172668142!5m2!1suk!2sua" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

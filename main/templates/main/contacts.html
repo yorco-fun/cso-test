@@ -1,0 +1,214 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<main class="page">
+  <section data-watch class="contacts">
+    <div class="contacts__container">
+      <div class="contacts__title-block title-block">
+        <h2 class="title-block__title title">Контакти</h2>
+        <div class="title-block__text text">
+          Наш інтернет-провайдер надає послуги цілодобово, без вихідних та
+          святкових днів. Ми завжди готові забезпечити вам стабільний та швидкий
+          доступ до мережі Інтернет
+        </div>
+      </div>
+      <div class="contacts__body">
+        <div class="contacts__content">
+          <h4 class="contacts__sub-title sub-title">Офіс у центрі міста</h4>
+          <ul class="contacts__items">
+            <li class="contacts__item _icon-location">
+              м. Золочів, вул. С.Бандери, 11
+            </li>
+            <li class="contacts__item _icon-clock">
+              Пн-Пт: 9:00 - 18:00, <span>Сб: 9:00 - 14:00</span>
+            </li>
+            <li class="contacts__item">
+              <a class="contacts__link _icon-phone" href="tel:0673703236"
+                >+38 (067) 370 32 36</a
+              >
+            </li>
+            <li class="contacts__item">
+              <a class="contacts__link _icon-mail" href="mailto:cso@gmail.com"
+                >cso@gmail.com</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="contacts__content">
+          <h4 class="contacts__sub-title sub-title">Головний офіс</h4>
+          <ul class="contacts__items">
+            <li class="contacts__item _icon-location">
+              м. Золочів, вул. Тернопільська, 3
+            </li>
+            <li class="contacts__item _icon-clock">Пн-Пт: 9:00 - 18:00</li>
+            <li class="contacts__item">
+              <a class="contacts__link _icon-phone" href="tel:0673703236"
+                >+38 (067) 370 32 36</a
+              >
+            </li>
+            <li class="contacts__item">
+              <a class="contacts__link _icon-mail" href="mailto:cso@gmail.com"
+                >cso@gmail.com</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="contacts__content">
+          <h4 class="contacts__sub-title sub-title">Технічна підтримка</h4>
+          <ul class="contacts__items">
+            <li class="contacts__item _icon-clock">9:00 - 20:00</li>
+            <li class="contacts__item">
+              <a class="contacts__link _icon-phone" href="tel:0673703236"
+                >+38 (067) 370 32 36</a
+              >
+            </li>
+            <li class="contacts__item">
+              <a class="contacts__link _icon-mail" href="mailto:cso@gmail.com"
+                >cso@gmail.com</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="contacts__content">
+          <h4 class="contacts__sub-title sub-title">Чат підтримки</h4>
+          <div class="contacts__text text">
+            Ми також пропонуємо підтримку через онлайн-чат на нашому сайті. Наші
+            фахівці з радістю допоможуть вам з будь-якими питаннями або
+            проблемами.
+          </div>
+          <ul class="contacts__items">
+            <li class="contacts__item">
+              <a
+                class="contacts__link _icon-telegram"
+                target="_blank"
+                href="https://web.telegram.org/"
+                >Цілодобово</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="contacts__content">
+          <h4 class="contacts__sub-title sub-title">Соціальні мережі</h4>
+          <div class="contacts__text text">
+            Слідкуйте за нашими новинами та акціями у соціальних мережах:
+          </div>
+          <ul class="contacts__items">
+            <li class="contacts__item">
+              <a
+                class="contacts__link _icon-facebook"
+                target="_blank"
+                href="https://www.facebook.com/cso.zolochiv"
+                >Facebook</a
+              >
+            </li>
+            <li class="contacts__item">
+              <a
+                class="contacts__link _icon-instagram"
+                target="_blank"
+                href="https://www.instagram.com/"
+                >Instagram</a
+              >
+            </li>
+            <li class="contacts__item">
+              <a
+                class="contacts__link _icon-telegram"
+                target="_blank"
+                href="https://web.telegram.org/"
+                >Telegram спільнота</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="contacts__content">
+          <h4 class="contacts__sub-title sub-title">Важлива інформація</h4>
+          <div class="contacts__text text">
+            <p>
+              Наші офіси обладнані всім необхідним для комфортного
+              обслуговування клієнтів. Якщо вам потрібна допомога у налаштуванні
+              обладнання або консультація, наші спеціалісти завжди готові вам
+              допомогти.
+            </p>
+            <p>Дякуємо, що обираєте нас!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section data-watch class="vacancies">
+    <div class="vacancies__container">
+      <div class="vacancies__title-block title-block">
+        <h2 class="title-block__title title">Вакансії</h2>
+        <div class="title-block__text text">
+          Ми завжди шукаємо талановитих та амбітних людей, які хочуть
+          приєднатися до нашої команди. Якщо ви прагнете розвиватися у сфері
+          телекомунікацій, працювати у дружньому колективі та робити світ кращим
+          через надання високоякісних послуг Інтернету, ми запрошуємо вас
+          розглянути наші актуальні вакансії.
+        </div>
+      </div>
+      <div class="vacancies__body">
+        {% if vacancies %} {% for vacancy in vacancies %}
+        <div class="vacancies__content">
+          <h4 class="vacancies__sub-title sub-title">{{ vacancy.title }}</h4>
+          <ul class="vacancies__items">
+            <li class="vacancies__item vacancies__item--title">Обов'язки:</li>
+            {% for responsibility in vacancy.get_responsibilities_list %}
+            <li class="vacancies__item">{{ responsibility }}</li>
+            {% endfor %}
+          </ul>
+          <ul class="vacancies__items">
+            <li class="vacancies__item vacancies__item--title">Вимоги:</li>
+            {% for requirement in vacancy.get_requirements_list %}
+            <li class="vacancies__item">{{ requirement }}</li>
+            {% endfor %}
+          </ul>
+          <ul class="vacancies__items">
+            <li class="vacancies__item vacancies__item--title">
+              Умови роботи:
+            </li>
+            {% for condition in vacancy.get_conditions_list %}
+            <li class="vacancies__item">{{ condition }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %} {% else %}
+        <p>Немає доступних вакансій.</p>
+        {% endif %}
+        <div class="vacancies__content vacancies__content--last">
+          <h4 class="vacancies__sub-title sub-title">Як подати заявку</h4>
+          <div class="vacancies__sub-text text">
+            Щоб стати частиною нашої команди, надішліть своє резюме та
+            супровідний лист на електронну адресу cso@gmail.com із зазначенням
+            назви вакансії у темі листа. Ми ретельно розглянемо вашу кандидатуру
+            та зв'яжемося з вами для подальшого обговорення.
+          </div>
+          <ul class="vacancies__items">
+            <li class="vacancies__item vacancies__item--title">
+              Чому обирають нас?
+            </li>
+            <li class="vacancies__item">
+              <span>Професійний розвиток:</span> Ми підтримуємо прагнення наших
+              співробітників до професійного зростання та надаємо можливості для
+              навчання.
+            </li>
+            <li class="vacancies__item">
+              <span>Дружній колектив:</span> У нас працюють доброзичливі та
+              відкриті люди, готові допомагати один одному.
+            </li>
+            <li class="vacancies__item">
+              <span>Стабільність:</span> Ми пропонуємо офіційне працевлаштування
+              та стабільну заробітну плату.
+            </li>
+            <li class="vacancies__item">
+              <span>Комфортні умови:</span> Сучасні офіси, зручне робоче місце
+              та приємна атмосфера.
+            </li>
+          </ul>
+          <div class="vacancies__sub-text text">
+            Приєднуйтесь до нашої команди та зробіть свій внесок у розвиток
+            передових технологій разом з нами!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="page">
+			<section data-watch class="article">
+				<div class="article__container">
+					<h2 class="article__title title">{{article.title}}</h2>
+					<img class="article__image ibg" src="{{article.image.url}}" alt="{{article.title}}">
+					<div class="article__content">
+						<div class="article__text text">
+							{{article.text}}
+						</div>
+					</div>
+				</div>
+			</section>
+</main>
+{% endblock %}
